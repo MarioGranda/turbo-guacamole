@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
+import { Origin } from "../actions/nav";
 
 export const selectOrigin = () =>
     useSelector((state: RootState) => state.nav.origin);

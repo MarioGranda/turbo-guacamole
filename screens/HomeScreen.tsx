@@ -1,6 +1,6 @@
 import { Image, SafeAreaView, View } from "react-native";
 import tw from 'twrnc';
-import NavOptions from "./NavOptions";
+import NavOptions from "../components/NavOptions";
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_MAPS_APIKEY } from '@env';
 import { useDispatch } from "react-redux";

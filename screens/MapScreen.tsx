@@ -1,12 +1,15 @@
-import { Image, SafeAreaView, View } from "react-native";
+import { View, Text } from "react-native";
 import tw from 'twrnc';
-import NavOptions from "./NavOptions";
+import Map from "../components/Map";
 
 export default function MapScreen() {
   return (
-    <SafeAreaView style={tw`bg-red-900 h-full`}>
-      <View style={tw`text-red-400 p-5`}>
+    <View style={tw`bg-red-900 h-full`}>
+      <View style={tw`h-1/2`}>
+        <Map />
       </View>
-    </SafeAreaView>
+      <View style={tw`h-1/2`}>
+      </View>
+    </View>
   );
 }
