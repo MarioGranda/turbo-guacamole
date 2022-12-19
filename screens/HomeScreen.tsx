@@ -27,7 +27,7 @@ export default function HomeScreen() {
             }
           }}
           debounce={400}
-          placeholder='Search'
+          placeholder='From?'
           fetchDetails={true}
           minLength={2}
           nearbyPlacesAPI="GooglePlacesSearch"
