@@ -7,6 +7,11 @@ export interface Origin {
     description: string;
 }
 
+export interface Destination {
+    location: Point;
+    description: string;
+}
+
 export const setOrigin = (origin: Origin) => {
     return {
         type: "SET_ORIGIN" as const,
@@ -15,7 +20,7 @@ export const setOrigin = (origin: Origin) => {
     }
 }
 
-export const setDestination = (destination: string) => {
+export const setDestination = (destination: Destination) => {
     return {
         type: "SET_DESTINATION" as const,
         payload:
