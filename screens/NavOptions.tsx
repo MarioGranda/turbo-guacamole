@@ -1,6 +1,8 @@
 import { FlatList, Image, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 import tw from 'twrnc';
 import { Icon } from "@rneui/base"
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigation } from "../App";
 
 const data = [
   {
@@ -17,14 +19,17 @@ const data = [
   }
 ]
 
-export default function NavOptions() {
+export default function NavOptions({ }) {
+  const navigation = useNavigation<StackNavigation>()
+
   return (
     <FlatList
       keyExtractor={item => item.id}
       data={data}
       horizontal
       renderItem={({ item }) => (
-        <TouchableOpacity style={tw`p-2 pb-8 pt-4 bg-red-800 m-2 h-60 w-40 items-center rounded-xl`}>
+        <TouchableOpacity style={tw`p-2 pb-8 pt-4 bg-red-800 m-2 h-60 w-40 items-center rounded-xl`}
+        onPress={() => navigation.navigate({ key: item.screen})}>
           <View>
             <Image style={{
               width: 120,
