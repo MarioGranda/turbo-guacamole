@@ -1,6 +1,8 @@
 import { Image, SafeAreaView, View } from "react-native";
 import tw from 'twrnc';
 import NavOptions from "./NavOptions";
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import { GOOGLE_MAPS_APIKEY } from '@env';
 
 export default function HomeScreen() {
   return (
