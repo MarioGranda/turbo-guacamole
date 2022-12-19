@@ -1,7 +1,8 @@
 import { AnyAction } from "redux"
+import { Origin } from "../actions/nav";
 
 interface State {
-    origin: string | null;
+    origin: Origin | null;
     destination: string | null;
     travelTimeInformation: string | null;
 }

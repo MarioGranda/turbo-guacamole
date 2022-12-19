@@ -1,6 +1,13 @@
+import { Point } from "react-native-google-places-autocomplete";
+
 export type ActionType = ReturnType<typeof setOrigin | typeof setDestination | typeof setTravelTimeInformation>
 
-export const setOrigin = (origin: string) => {
+export interface Origin {
+    location: Point;
+    description: string;
+}
+
+export const setOrigin = (origin: Origin) => {
     return {
         type: "SET_ORIGIN" as const,
         payload:
