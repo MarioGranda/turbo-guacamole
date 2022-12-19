@@ -1,8 +1,7 @@
-import { FlatList, Image, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 import tw from 'twrnc';
 import { Icon } from "@rneui/base"
 import { useNavigation } from "@react-navigation/native";
-import { StackNavigation } from "../App";
 
 const data = [
   {
@@ -15,12 +14,12 @@ const data = [
     id: "2",
     title: "Order food",
     image: "https://cdn-icons-png.flaticon.com/512/5141/5141534.png",
-    screen: "EatScreen"
+    screen: "HomeScreen"
   }
 ]
 
 export default function NavOptions({ }) {
-  const navigation = useNavigation<StackNavigation>()
+  const navigation = useNavigation()
 
   return (
     <FlatList
@@ -29,7 +28,7 @@ export default function NavOptions({ }) {
       horizontal
       renderItem={({ item }) => (
         <TouchableOpacity style={tw`p-2 pb-8 pt-4 bg-red-800 m-2 h-60 w-40 items-center rounded-xl`}
-        onPress={() => navigation.navigate({ key: item.screen})}>
+        onPress={() => navigation.navigate(item.screen as never)}>
           <View>
             <Image style={{
               width: 120,

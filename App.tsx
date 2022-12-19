@@ -3,17 +3,10 @@ import { store } from './redux/store';
 import HomeScreen from './screens/HomeScreen';
 import { SafeAreaProvider } from "react-native-safe-area-context"
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator, StackNavigationProp } from "@react-navigation/stack"
+import { createStackNavigator } from "@react-navigation/stack"
 import MapScreen from "./screens/MapScreen";
 
-type RootStackParamList = {
-  HomeScreen: undefined;
-  MapScreen: undefined;
-};
-
-export type StackNavigation = StackNavigationProp<RootStackParamList>
-
-const Stack = createStackNavigator<RootStackParamList>()
+const Stack = createStackNavigator()
 
 export default function App() {
   return (
