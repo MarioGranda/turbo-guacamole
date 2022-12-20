@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import { Icon } from '@rneui/base'
 import React, { FC, RefObject } from 'react'
 import { FlatList, Text, TouchableOpacity, View } from 'react-native'
@@ -11,14 +12,14 @@ const data = [
         id: "1",
         icon: "home",
         name: "Home",
-        location: {"lat": 40.4526148, "lng": -3.6232624},
+        location: { "lat": 40.4526148, "lng": -3.6232624 },
         description: "Avenida de los Prunos, 5, Madrid, Spain"
     },
     {
         id: "2",
         icon: "briefcase",
         name: "Gym",
-        location: {"lat": 40.4319795, "lng": -3.631175},
+        location: { "lat": 40.4319795, "lng": -3.631175 },
         description: "Kamus Barbell Club, Calle de Miguel Fleta, Madrid, Spain"
     }
 ]
@@ -31,6 +32,7 @@ interface Props {
 
 const NavFavourites: FC<Props> = ({ inputRef, screen }) => {
     const dispatch = useDispatch()
+    const navigation = useNavigation()
 
     return (
         <FlatList
@@ -39,7 +41,7 @@ const NavFavourites: FC<Props> = ({ inputRef, screen }) => {
             ItemSeparatorComponent={() => (
                 <View style={tw`bg-gray-200 h-0.1 w-3/4 self-center`} />
             )}
-            renderItem={({ item: { name , location, description, icon } }) => (
+            renderItem={({ item: { name, location, description, icon } }) => (
                 <TouchableOpacity style={tw`flex-row items-center p-5`}
                     onPress={() => {
                         inputRef.current?.setAddressText(description)
@@ -47,7 +49,12 @@ const NavFavourites: FC<Props> = ({ inputRef, screen }) => {
                             location,
                             description
                         }
-                        screen === "home" ? dispatch(setOrigin(data)) : dispatch(setDestination(data))
+                        if (screen === "home") {
+                            dispatch(setOrigin(data))
+                        } else {
+                            dispatch(setDestination(data))
+                            navigation.navigate('RideOptionsCard' as never)
+                        }
                     }}>
                     <Icon
                         style={tw`mr-4 rounded-full p-3 bg-red-400`}

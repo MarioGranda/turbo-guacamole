@@ -1,4 +1,4 @@
-import {  Text, SafeAreaView, View } from "react-native";
+import {  Text, SafeAreaView, View, TouchableOpacity } from "react-native";
 import { GooglePlacesAutocomplete, GooglePlacesAutocompleteRef } from "react-native-google-places-autocomplete";
 import { useDispatch } from "react-redux";
 import tw from "twrnc";
@@ -8,6 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import NavOptions from "./NavOptions";
 import NavFavourites from "./NavFavourites";
 import { useRef } from "react";
+import { Icon } from "@rneui/base";
 
 export default function NavigateCard() {
   const dispatch = useDispatch()
@@ -15,9 +16,8 @@ export default function NavigateCard() {
   const ref = useRef<GooglePlacesAutocompleteRef>(null)
   return (
     <SafeAreaView style={tw`bg-white flex-1`}>
-      <Text style={tw`text-center py-5 text-xl`}>Heyyy</Text>
       <View
-      style={tw`border-t border-gray-200 flex-shrink`}>
+      style={tw`mt-auto`}>
         <View>
         <GooglePlacesAutocomplete
           ref={ref}
@@ -51,6 +51,18 @@ export default function NavigateCard() {
         />
         </View>
         <NavFavourites inputRef={ref} screen="map"/>
+      </View>
+
+      <View style={tw`flex flex-row justify-evenly border-t border-gray-100 w-3/4 self-center py-6`}>
+        <TouchableOpacity 
+        onPress={() => navigation.navigate("RideOptionsCard" as never)}style={tw`bg-black flex flex-row justify-between px-4 py-3 w-24 rounded-full`}>
+          <Icon name="car" type="font-awesome" color="white" size={16}/>
+          <Text style={tw`text-white`}>Rides</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={tw`flex flex-row justify-between px-4 py-3 w-24 rounded-full`}>
+          <Icon name="fast-food-outline" type="ionicon" color="black" size={16}/>
+          <Text style={tw`text-black`}>Eat</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
