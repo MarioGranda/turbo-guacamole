@@ -15,7 +15,7 @@ const data = [
     id: "2",
     title: "Order food",
     image: "https://cdn-icons-png.flaticon.com/512/5141/5141534.png",
-    screen: "HomeScreen"
+    screen: "MapScreen"
   }
 ]
 
