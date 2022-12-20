@@ -1,13 +1,17 @@
 import { Image, SafeAreaView, View } from "react-native";
 import tw from 'twrnc';
 import NavOptions from "../components/NavOptions";
-import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import { GooglePlacesAutocomplete, GooglePlacesAutocompleteRef } from 'react-native-google-places-autocomplete';
 import { GOOGLE_MAPS_APIKEY } from '@env';
 import { useDispatch } from "react-redux";
 import { setOrigin } from "../redux/actions/nav";
+import NavFavourites from "../components/NavFavourites";
+import { useRef } from "react";
+
 
 export default function HomeScreen() {
   const dispatch = useDispatch()
+  const ref = useRef<GooglePlacesAutocompleteRef>(null)
   return (
     <SafeAreaView style={tw`bg-red-900 h-full`}>
       <View style={tw`flex text-red-400 p-5`}>
@@ -18,6 +22,7 @@ export default function HomeScreen() {
         }}
           source={{ uri: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png" }} />
         <GooglePlacesAutocomplete
+          ref={ref}
           styles={{
             container: {
               flex: 0
@@ -33,6 +38,10 @@ export default function HomeScreen() {
           nearbyPlacesAPI="GooglePlacesSearch"
           enablePoweredByContainer={false}
           onPress={(data, details = null) => {
+            console.log({
+              location: details?.geometry.location,
+              description: data.description
+            })
             if (details)
             dispatch(setOrigin({
               location: details?.geometry.location,
@@ -46,6 +55,7 @@ export default function HomeScreen() {
         />
         <NavOptions />
       </View>
+      <NavFavourites inputRef={ref} screen="home"/>
     </SafeAreaView>
   );
 }
