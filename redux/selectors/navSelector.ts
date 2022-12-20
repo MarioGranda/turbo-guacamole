@@ -6,8 +6,8 @@ export const selectOrigin = () =>
     useSelector((state: RootState) => state.nav.origin);
 
 export const selectDestination = () =>
-    useSelector((state: RootState) => state.nav.origin);
+    useSelector((state: RootState) => state.nav.destination);
 
 export const selecTravelTimeInformation = () =>
-    useSelector((state: RootState) => state.nav.origin);
+    useSelector((state: RootState) => state.nav.travelTimeInformation);
 
