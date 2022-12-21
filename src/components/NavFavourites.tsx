@@ -5,7 +5,7 @@ import { FlatList, Text, TouchableOpacity, View } from 'react-native'
 import { GooglePlacesAutocompleteRef } from 'react-native-google-places-autocomplete'
 import { useDispatch } from 'react-redux'
 import tw from 'twrnc'
-import { setDestination, setOrigin } from '../redux/actions/nav'
+import { setDestination, setOrigin } from '@/redux/actions/nav'
 
 const data = [
     {

@@ -2,7 +2,7 @@ import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 import tw from 'twrnc';
 import { Icon } from "@rneui/base"
 import { useNavigation } from "@react-navigation/native";
-import { selectOrigin } from "../redux/selectors/navSelector";
+import { selectOrigin } from "@/redux/selectors/navSelector";
 
 const data = [
   {

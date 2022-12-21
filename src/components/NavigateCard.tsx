@@ -2,7 +2,7 @@ import {  Text, SafeAreaView, View, TouchableOpacity } from "react-native";
 import { GooglePlacesAutocomplete, GooglePlacesAutocompleteRef } from "react-native-google-places-autocomplete";
 import { useDispatch } from "react-redux";
 import tw from "twrnc";
-import { setDestination } from "../redux/actions/nav";
+import { setDestination } from "@/redux/actions/nav";
 import { GOOGLE_MAPS_APIKEY } from '@env';
 import { useNavigation } from "@react-navigation/native";
 import NavFavourites from "./NavFavourites";

@@ -2,12 +2,12 @@ import { Icon, Image } from "@rneui/base";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import tw from 'twrnc';
-import taxi from "../assets/standard-taxi.jpg"
-import van from "../assets/van-taxi.jpg"
-import limo from "../assets/limousine-taxi.jpg"
+import taxi from "@/assets/standard-taxi.jpg"
+import van from "@/assets/van-taxi.jpg"
+import limo from "@/assets/limousine-taxi.jpg"
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { selectTravelTimeInformation } from "../redux/selectors/navSelector";
+import { selectTravelTimeInformation } from "@/redux/selectors/navSelector";
 
 const data = [
   {

@@ -3,9 +3,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Icon } from "@rneui/base";
 import { View, TouchableOpacity } from "react-native";
 import tw from 'twrnc';
-import Map from "../components/Map";
-import NavigateCard from "../components/NavigateCard";
-import RideOptionsCard from "../components/RideOptionsCard";
+import Map from "@/components/Map";
+import NavigateCard from "@/components/NavigateCard";
+import RideOptionsCard from "@/components/RideOptionsCard";
 
 const MapScreen = () => {
   const navigation = useNavigation()
