@@ -1,5 +1,5 @@
 import { GOOGLE_MAPS_APIKEY } from "@env";
-import axios, { AxiosResponseHeaders } from "axios";
+import axios from "axios";
 import { useEffect, useRef } from "react";
 import MapView, { Marker } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
@@ -8,7 +8,7 @@ import tw from 'twrnc';
 import { setTravelTimeInformation } from "../redux/actions/nav";
 import { selectDestination, selectOrigin } from "../redux/selectors/navSelector";
 
-export default function Map() {
+const Map = () => {
   const origin = selectOrigin()
   const destination = selectDestination()
   const dispatch = useDispatch()
@@ -75,3 +75,5 @@ export default function Map() {
       </MapView>
   );
 }
+
+export default Map;

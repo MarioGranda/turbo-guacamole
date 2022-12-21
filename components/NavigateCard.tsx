@@ -5,12 +5,11 @@ import tw from "twrnc";
 import { setDestination } from "../redux/actions/nav";
 import { GOOGLE_MAPS_APIKEY } from '@env';
 import { useNavigation } from "@react-navigation/native";
-import NavOptions from "./NavOptions";
 import NavFavourites from "./NavFavourites";
 import { useRef } from "react";
 import { Icon } from "@rneui/base";
 
-export default function NavigateCard() {
+const NavigateCard = () => {
   const dispatch = useDispatch()
   const navigation = useNavigation()
   const ref = useRef<GooglePlacesAutocompleteRef>(null)
@@ -67,3 +66,5 @@ export default function NavigateCard() {
     </SafeAreaView>
   );
 }
+
+export default NavigateCard;

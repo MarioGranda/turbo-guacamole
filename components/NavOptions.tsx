@@ -19,7 +19,7 @@ const data = [
   }
 ]
 
-export default function NavOptions({ }) {
+const NavOptions = ({ }) => {
   const origin = selectOrigin()
   const navigation = useNavigation()
 
@@ -53,3 +53,5 @@ export default function NavOptions({ }) {
       )} />
   )
 }
+
+export default NavOptions;

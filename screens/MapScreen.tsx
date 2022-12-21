@@ -1,13 +1,13 @@
 import { useNavigation } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Icon } from "@rneui/base";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import tw from 'twrnc';
 import Map from "../components/Map";
 import NavigateCard from "../components/NavigateCard";
 import RideOptionsCard from "../components/RideOptionsCard";
 
-export default function MapScreen() {
+const MapScreen = () => {
   const navigation = useNavigation()
 
   const Stack = createStackNavigator()
@@ -35,3 +35,5 @@ export default function MapScreen() {
     </View>
   );
 }
+
+export default MapScreen

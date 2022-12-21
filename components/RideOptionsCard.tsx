@@ -1,5 +1,5 @@
 import { Icon, Image } from "@rneui/base";
-import { View, Text, FlatList, TouchableOpacity, processColor } from "react-native";
+import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import tw from 'twrnc';
 import taxi from "../assets/standard-taxi.jpg"
@@ -37,7 +37,7 @@ interface Taxi {
   multiplier: number;
 }
 
-export default function RideOptionsCard() {
+const RideOptionsCard = () => {
   const [selected, setSelected] = useState<Taxi | null>(null)
   const navigation = useNavigation()
   const travelTimeInformation = selectTravelTimeInformation()
@@ -92,3 +92,5 @@ export default function RideOptionsCard() {
     </SafeAreaView>
   );
 }
+
+export default RideOptionsCard;

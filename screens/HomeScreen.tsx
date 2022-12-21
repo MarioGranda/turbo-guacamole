@@ -9,7 +9,7 @@ import NavFavourites from "../components/NavFavourites";
 import { useRef } from "react";
 
 
-export default function HomeScreen() {
+const HomeScreen = () => {
   const dispatch = useDispatch()
   const ref = useRef<GooglePlacesAutocompleteRef>(null)
   return (
@@ -59,3 +59,5 @@ export default function HomeScreen() {
     </SafeAreaView>
   );
 }
+
+export default HomeScreen;
