@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import tw from 'twrnc';
 import { setTravelTimeInformation } from "@/redux/actions/nav";
 import { selectDestination, selectOrigin } from "@/redux/selectors/navSelector";
+import getMatrixUrl from "@/utils/get/matrixUrl";
 
 const Map = () => {
   const origin = selectOrigin()
@@ -25,8 +26,7 @@ const Map = () => {
     if (!origin || !destination) return;
 
     const getTravelTime = async () => {
-      const { data } = await axios.get(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin.description}&destinations=${destination.description}&units=imperial&key=${GOOGLE_MAPS_APIKEY}`)
-      console.log(JSON.stringify(data))
+      const { data } = await axios.get(getMatrixUrl(destination.description, origin.description))
       if (data.rows[0].elements[0])
       dispatch(setTravelTimeInformation(data.rows[0].elements[0]))
     }
