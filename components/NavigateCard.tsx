@@ -17,7 +17,7 @@ export default function NavigateCard() {
   return (
     <SafeAreaView style={tw`bg-white flex-1`}>
       <View
-      style={tw`mt-auto`}>
+      style={tw`flex-shrink`}>
         <View>
         <GooglePlacesAutocomplete
           ref={ref}
