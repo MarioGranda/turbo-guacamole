@@ -1,5 +1,6 @@
 {
   "expo": {
+    "entryPoint": "./App.tsx",
     "name": "uber-like-app",
     "slug": "uber-like-app",
     "version": "1.0.0",

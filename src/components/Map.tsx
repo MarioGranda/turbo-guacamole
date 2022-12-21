@@ -5,7 +5,7 @@ import MapView, { Marker } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 import { useDispatch } from "react-redux";
 import tw from 'twrnc';
-import { setTravelTimeInformation } from "../redux/actions/nav";
+import { setTravelTimeInformation } from "@/redux/actions/nav";
 import { selectDestination, selectOrigin } from "../redux/selectors/navSelector";
 
 const Map = () => {
