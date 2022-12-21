@@ -6,6 +6,8 @@ import { GooglePlacesAutocompleteRef } from 'react-native-google-places-autocomp
 import { useDispatch } from 'react-redux'
 import tw from 'twrnc'
 import { setDestination, setOrigin } from '@/redux/actions/nav'
+import { Point } from "react-native-google-places-autocomplete";
+
 
 const data = [
     {
@@ -34,6 +36,20 @@ const NavFavourites: FC<Props> = ({ inputRef, screen }) => {
     const dispatch = useDispatch()
     const navigation = useNavigation()
 
+    const onPress = (description: string, location: Point) => {
+        inputRef.current?.setAddressText(description)
+        const data = {
+            location,
+            description
+        }
+        if (screen === "home") {
+            dispatch(setOrigin(data))
+        } else {
+            dispatch(setDestination(data))
+            navigation.navigate('RideOptionsCard' as never)
+        }
+    }
+
     return (
         <FlatList
             data={data}
@@ -43,19 +59,7 @@ const NavFavourites: FC<Props> = ({ inputRef, screen }) => {
             )}
             renderItem={({ item: { name, location, description, icon } }) => (
                 <TouchableOpacity style={tw`flex-row items-center p-5`}
-                    onPress={() => {
-                        inputRef.current?.setAddressText(description)
-                        const data = {
-                            location,
-                            description
-                        }
-                        if (screen === "home") {
-                            dispatch(setOrigin(data))
-                        } else {
-                            dispatch(setDestination(data))
-                            navigation.navigate('RideOptionsCard' as never)
-                        }
-                    }}>
+                    onPress={() => onPress(description, location)}>
                     <Icon
                         style={tw`mr-4 rounded-full p-3 bg-red-400`}
                         name={icon}
